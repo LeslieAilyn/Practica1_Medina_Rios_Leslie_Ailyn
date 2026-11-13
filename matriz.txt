@@ -1,0 +1,35 @@
+case 1: { // Llave de apertura para el bloque del case
+            int i, j;
+            printf("Ingresa el tamano del cuadro: ");
+            scanf("%d", &n);
+
+            if (n == 3)
+            {
+                // PASO 1: Llenar toda la matriz primero
+                printf("\n--- Ingresa los valores del cuadro (3x3) ---\n");
+                for (i = 0; i < n; i++) {
+                    for (j = 0; j < n; j++) {
+                        printf("Cuadro[%d][%d]: ", i, j);
+                        scanf("%d", &cuadro[i][j]);
+                    }
+                }
+
+                // PASO 2: Sumar e imprimir cada fila
+                printf("\n--- Suma de Filas ---\n");
+                for (i = 0; i < n; i++) {
+                    int res_fila = suma_fila(cuadro, i, n);
+                    printf("Suma de la fila %d: %d\n", i, res_fila);
+                }
+
+                // PASO 3: Sumar e imprimir cada columna
+                printf("\n--- Suma de Columnas ---\n");
+                for (j = 0; j < n; j++) {
+                    int res_col = suma_columna(cuadro, j, n);
+                    printf("Suma de la columna %d: %d\n", j, res_col);
+                }
+            }
+            else {
+                printf("NO ES UN CUADRO MAGICO (Tamano no soportado)\n");
+            }
+            break;
+        } // Llave de cierre del case
